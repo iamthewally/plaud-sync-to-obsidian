@@ -1,0 +1,2 @@
+# plaud-sync-to-obsidian
+ 
