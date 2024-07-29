@@ -1,47 +1,79 @@
 # Plaud Sync to Obsidian
 
-This script processes WAV audio files from specified directories, converts them to MP3, transcribes them using a Whisper ASR service, and saves the transcriptions as markdown files in an Obsidian vault.
+This project automates the process of syncing audio recordings from Plaud Note devices to Obsidian, including transcription, summarization, and backup functionalities.
 
 ## Features
 
-- Converts WAV files to MP3 for efficient processing
-- Transcribes audio using a Whisper ASR service
-- Saves transcriptions as markdown files in an Obsidian vault
-- Processes files from multiple source directories
-- Cleans up temporary MP3 files after processing
+- Moves WAV files from Plaud Note devices to a backup directory
+- Converts WAV files to MP3 format
+- Transcribes audio files using a Whisper ASR API
+- Generates summaries and hashtags for transcripts using an LLM API
+- Creates markdown files with transcripts, summaries, and hashtags
+- Backs up Obsidian vault to an external drive
 
-## Requirements
+## Project Structure
 
-- Python 3.7+
-- ffmpeg
-- requests library
+```
+project_root/
+│
+├── config.py
+├── main.py
+├── requirements.txt
+├── README.md
+│
+├── plaud_sync/
+│   ├── __init__.py
+│   ├── file_operations.py
+│   ├── transcription.py
+│   ├── summarization.py
+│   ├── backup.py
+│   └── utils.py
+│
+└── tests/
+    ├── __init__.py
+    ├── test_file_operations.py
+    ├── test_transcription.py
+    └── test_summarization.py
+```
 
 ## Setup
 
-1. Clone this repository
-2. Install the required Python packages: `pip install -r requirements.txt`
-3. Ensure ffmpeg is installed and available in your system PATH
-4. Update the configuration in `config.py` with your specific paths and settings
+1. Clone the repository
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Configure the paths and API endpoints in `config.py`
 
 ## Usage
 
-Run the script with:
+Run the main script:
+
 ```
-python plaud_transcribe.py
+python main.py
 ```
 
+The script will guide you through the process of backing up files, transcribing audio, and creating markdown notes in your Obsidian vault.
 
+## Testing
 
+To run the unit tests:
 
-## Configuration
+```
+python -m unittest discover tests
+```
 
-Edit `config.py` to set the following variables:
+## Dependencies
 
-- `PLAUD_NOTE_DIR`: Directory path for PLAUD_NOTE device
-- `USB_DISK_DIR`: Directory path for USB DISK device
-- `OBSIDIAN_DIR`: Directory path for your Obsidian vault
-- `WHISPER_ENDPOINT`: URL of your Whisper ASR service
+- Python 3.7+
+- ffmpeg (for audio conversion)
+- requests (for API calls)
+- Other dependencies listed in `requirements.txt`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-[MIT License](LICENSE)
+This project is open source and available under the [MIT License](LICENSE).
