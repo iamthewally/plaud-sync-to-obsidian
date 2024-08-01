@@ -7,6 +7,11 @@ from datetime import datetime
 import json
 import hashlib
 import logging
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
+import webrtcvad
+import wave
+import contextlib
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -116,14 +121,30 @@ def backup_obsidian():
         logging.error(f"Error during Obsidian backup: {e}")
 
 
-
 def convert_wav_to_mp3(wav_path, mp3_path):
-    command = ['ffmpeg', '-i', wav_path, '-acodec', 'libmp3lame', '-b:a', '128k', mp3_path]
     try:
-        subprocess.run(command, check=True)
-        logging.info(f"Converted {wav_path} to {mp3_path}")
-    except subprocess.CalledProcessError as e:
+        # Load the WAV file
+        audio = AudioSegment.from_wav(wav_path)
+        
+        # Split audio on silence
+        chunks = split_on_silence(
+            audio,
+            min_silence_len=500,  # Adjust this value (in ms) as needed
+            silence_thresh=-40    # Adjust this value (in dB) as needed
+        )
+        
+        # Concatenate chunks with short silences between them
+        processed_audio = AudioSegment.empty()
+        for chunk in chunks:
+            processed_audio += chunk + AudioSegment.silent(duration=200)
+        
+        # Export as MP3
+        processed_audio.export(mp3_path, format="mp3")
+        
+        logging.info(f"Converted and VAD-processed {wav_path} to {mp3_path}")
+    except Exception as e:
         logging.error(f"Error converting {wav_path} to MP3: {e}")
+
 
 def transcribe_audio(audio_path):
     try:
