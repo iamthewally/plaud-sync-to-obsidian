@@ -1,2 +1,8 @@
-requests==2.26.0
-click
+certifi==2024.7.4
+charset-normalizer==3.3.2
+click @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_f27dk3zwrb/croot/click_1698129816363/work
+idna==3.7
+pydub==0.25.1
+requests==2.32.3
+urllib3==2.2.2
+webrtcvad==2.0.10
