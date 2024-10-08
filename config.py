@@ -13,7 +13,6 @@ TRANSCRIPT_DIR = f"{OBSIDIAN_DIR}/asr/transcript"
 # Backup configuration
 OBSIDIAN_BACKUP_SOURCE = "/Users/wa/Library/Mobile Documents/iCloud~md~obsidian/Documents/"
 OBSIDIAN_BACKUP_DEST = "/Volumes/DataMcDataFace/Obsidian/"
-# Add this to config.py
 SUMMARY_DIR = f"{OBSIDIAN_DIR}/asr/summary"
 
 # Logging configuration
@@ -21,7 +20,7 @@ LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 LOG_LEVEL = 'INFO'
 
 # API models
-LLM_MODEL = "qwen2.5:32b-instruct-q4_K_M"
+LLM_MODEL = "command-r:35b-08-2024-q4_K_M"
 
-# Audio conversion settings
+# WAV -> MP# conversion settings
 MP3_BITRATE = '128k'
