@@ -16,10 +16,12 @@ Summaries are handled by an Ollama instance on the same personal server as the t
 
 ## Screenshots
 1. Summary note in Obsidian
-![image](https://github.com/user-attachments/assets/a6cce547-e8ef-4f72-bbbc-1ab6a7587557)
+![image](https://github.com/user-attachments/assets/07b2b103-c10a-4e19-bd12-dc22c73d5a06)
+
 
 2. Transcript in Obsidian
-![image](https://github.com/user-attachments/assets/7cbcdf84-ecd2-4efc-a66b-2b1e6448cb75)
+![image](https://github.com/user-attachments/assets/c0c59bdf-c10d-4d79-a8f1-3e8fc41a519e)
+
 
 ## Todo
 
