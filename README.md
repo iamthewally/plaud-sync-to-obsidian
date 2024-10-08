@@ -6,6 +6,7 @@ Transcription is currently via a Whisper endpoint on a personal server.  https:/
 
 Summaries are handled by an Ollama instance on the same personal server as the transcription. I'm using a GGUF of Command R for the model and it has been working like a champ for summarization at 32K context.  https://huggingface.co/CohereForAI/c4ai-command-r-08-2024
 
+
 ## Functions (in process order)
 
 1. Moves WAV files from Plaud Note devices to a backup directory
@@ -16,16 +17,15 @@ Summaries are handled by an Ollama instance on the same personal server as the t
 
 ## Screenshots
 1. Summary note in Obsidian
-![image](https://github.com/user-attachments/assets/07b2b103-c10a-4e19-bd12-dc22c73d5a06)
-
+![image](https://github.com/user-attachments/assets/833d078e-6ea6-4e33-a808-2ddc6dd59ad2)
 
 2. Transcript in Obsidian
-![image](https://github.com/user-attachments/assets/c0c59bdf-c10d-4d79-a8f1-3e8fc41a519e)
-
+![image](https://github.com/user-attachments/assets/4473a813-3939-42fc-ad6f-1bf94bd7f298)
 
 ## Todo
 
 - Make configuration friendlier
+- Move summary prompt into config file
 - Break summarization into N steps for more focused prompting (prompt for just the where, prompt for just when, etc)
 - Include local Ollama
 - Include local Whisper (WhisperX?)
